@@ -6,7 +6,7 @@ import { Loader } from 'components/Loader/Loader';
 import { ErrorMessages } from 'components/Loader/Error/ErrorMessages';
 
 export const Reviews = () => {
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -34,7 +34,6 @@ export const Reviews = () => {
         setReviews(reviewsData.results);
         setError(null);
       } catch (error) {
-        console.log(error);
         if (error.code !== 'ERR_CANCELED') {
           setError(error.message);
         }
@@ -46,13 +45,19 @@ export const Reviews = () => {
     getReviews();
   }, [reviewsUrl]);
 
-  console.log(reviews);
+  const cons= reviews.length;
+  console.log(cons);
 
   return (
     <div>
       {isLoading && <Loader />}
       {error && <ErrorMessages>{error}</ErrorMessages>}
-      {reviews && <ReviewList reviews={reviews} />}{' '}
+
+      {reviews.length !== 0 ? (
+        <ReviewList reviews={reviews} />
+      ) : (
+          <p>There's no reviews yet</p>
+      )}
     </div>
   );
 };

@@ -5,7 +5,7 @@ export const Spinner = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
-  color: darkblue;
+  color: orangered;
 
   text-transform: capitalize;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),

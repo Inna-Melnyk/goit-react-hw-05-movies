@@ -50,7 +50,8 @@ export const Reviews = () => {
 
   return (
     <div>
-      <h2>Reviews Page</h2>
+      {isLoading && <Loader />}
+      {error && <ErrorMessages>{error}</ErrorMessages>}
       {reviews && <ReviewList reviews={reviews} />}{' '}
     </div>
   );

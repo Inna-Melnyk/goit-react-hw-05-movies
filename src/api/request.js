@@ -15,3 +15,15 @@ export const fetchMovies = async (detailedUrl, signal) => {
 
   return response.data;
 };
+
+export const fetchMoviesbyTitle = async (query, signal) => {
+  const response = await axios.get('search/movie', {
+    signal,
+    params: {
+      api_key: API_KEY,
+      language: 'en-US',
+      query,
+    },
+  });
+  return response.data.results;
+};

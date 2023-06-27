@@ -40,7 +40,7 @@ export const MovieLink = styled(Link)`
 
 export const Image = styled.img`
   display: block;
-    height: auto;
+    height: 420px;
     max-width: 100%;
 
 `;

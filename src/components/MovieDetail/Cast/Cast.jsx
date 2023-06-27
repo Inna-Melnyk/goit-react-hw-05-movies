@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovies } from 'api/request';
 import { CastList } from './CastList';
 import { Loader } from 'components/Loader/Loader';
-import { ErrorMessages } from 'components/Loader/Error/ErrorMessages';
+import { ErrorMessages } from 'components/Error/ErrorMessages';
 
 export const Cast = () => {
   const [cast, setCast] = useState(null);

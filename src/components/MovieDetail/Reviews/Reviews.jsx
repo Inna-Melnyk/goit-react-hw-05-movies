@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovies } from 'api/request';
 import { ReviewList } from './ReviewList';
 import { Loader } from 'components/Loader/Loader';
-import { ErrorMessages } from 'components/Loader/Error/ErrorMessages';
+import { ErrorMessages } from 'components/Error/ErrorMessages';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -45,7 +45,7 @@ export const Reviews = () => {
     getReviews();
   }, [reviewsUrl]);
 
-  const cons= reviews.length;
+  const cons = reviews.length;
   console.log(cons);
 
   return (
@@ -56,7 +56,7 @@ export const Reviews = () => {
       {reviews.length !== 0 ? (
         <ReviewList reviews={reviews} />
       ) : (
-          <p>There's no reviews yet</p>
+        <p>There's no reviews yet</p>
       )}
     </div>
   );

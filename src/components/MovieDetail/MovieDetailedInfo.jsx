@@ -7,6 +7,7 @@ import {
   Text,
   Subtitle,
   BackLink,
+  Image
 } from './MovieDetailedInfo.styled';
 import { useRef } from 'react';
 
@@ -26,14 +27,14 @@ export const MovieDetailedInfo = ({ movieInfo }) => {
 
       <Wrapper>
         {movieInfo.poster_path ? (
-          <img
+          <Image
             src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`}
             alt={movieInfo.title || movieInfo.name}
             width="300"
           />
         ) : (
-          <img
-            src="https://cutewallpaper.org/24/image-placeholder-png/croppedplaceholderpng-%E2%80%93-osa-grappling.png"
+          <Image
+            src="https://cringemdb.com/img/movie-poster-placeholder.png"
             alt="placeholder"
             width="300"
           />

@@ -5,7 +5,23 @@ export const Wrapper = styled.div`
   display: flex;
   padding: 0;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 458px) {
+    flex-direction: column;
+    
+  }
 `;
+
+export const Image = styled.img`
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  @media screen and (max-width: 458px) {
+    margin-bottom: 20px;
+  }
+`;
+
 
 export const Info = styled.div`
   padding-left: 36px;

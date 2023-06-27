@@ -8,7 +8,13 @@ export const List = styled.ul`
   margin: 0;
   padding-bottom: 20px;
   gap: 16px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid black; 
+  
+  @media screen and (max-width: 458px) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 `;
 export const Item = styled.li`
   min-width: 200px;
@@ -33,4 +39,5 @@ export const InfoLink = styled(Link)`
     color: orangered;
     transform: scale(1.02);
   }
+  
 `;

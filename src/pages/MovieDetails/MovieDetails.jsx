@@ -3,8 +3,8 @@ import { fetchMovies } from 'api/request';
 import { useParams, Outlet } from 'react-router-dom';
 import { MovieDetailedInfo } from 'components/MovieDetail/MovieDetailedInfo';
 import { Loader } from 'components/Loader/Loader';
-import { ErrorMessages } from 'components/Loader/Error/ErrorMessages';
-import { InfoLink, Item,List } from './MovieDetails.styled';
+import { ErrorMessages } from 'components/Error/ErrorMessages';
+import { InfoLink, Item, List } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -46,7 +46,7 @@ const MovieDetails = () => {
     getDetailsMovies();
   }, [detailsSearchUrl]);
 
-            console.log(movie);
+  console.log(movie);
 
   return (
     <div>

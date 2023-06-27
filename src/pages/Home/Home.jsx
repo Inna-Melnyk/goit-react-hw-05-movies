@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchMovies } from 'api/request';
 import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
-import { ErrorMessages } from 'components/Loader/Error/ErrorMessages';
+import { ErrorMessages } from 'components/Error/ErrorMessages';
 import { Title } from './Home.styled';
 import { useLocation } from 'react-router-dom';
 
@@ -13,8 +13,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const abortCtrl = useRef();
-
-  const location = useLocation();
 
   useEffect(() => {
     const getTrendingMovies = async () => {
@@ -50,7 +48,9 @@ const Home = () => {
       <Title>Trending today</Title>
       {isLoading && <Loader />}
       {error && <ErrorMessages>{error}</ErrorMessages>}
-      {!isLoading && movies.length > 0 && <MoviesList data={movies} locationState={{from:location}} />}
+      {!isLoading && movies.length > 0 && (
+        <MoviesList data={movies} />
+      )}
     </>
   );
 };

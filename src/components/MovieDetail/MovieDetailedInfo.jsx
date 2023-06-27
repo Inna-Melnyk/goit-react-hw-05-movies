@@ -8,16 +8,18 @@ import {
   Subtitle,
   BackLink,
 } from './MovieDetailedInfo.styled';
+import { useRef } from 'react';
 
 export const MovieDetailedInfo = ({ movieInfo }) => {
   const location = useLocation();
+  const backLinkLocation = useRef(location.state?.from ?? '/');
 
   const genre = movieInfo.genres;
   const genres = genre.map(item => item.name).join(', ');
 
   return (
     <>
-      <BackLink to={location.state.from}>
+      <BackLink to={backLinkLocation.current}>
         <TfiControlBackward size="18" />
         <span>Back</span>
       </BackLink>

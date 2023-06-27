@@ -45,7 +45,6 @@ export const Cast = () => {
 
   return (
     <div>
-      <h2>Cast Page</h2>
       {isLoading && <Loader />}
       {error && <ErrorMessages>{error}</ErrorMessages>}
       {cast && <CastList cast={cast} />}

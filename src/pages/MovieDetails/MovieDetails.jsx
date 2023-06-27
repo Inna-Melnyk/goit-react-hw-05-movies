@@ -1,9 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 import { fetchMovies } from 'api/request';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import { MovieDetailedInfo } from 'components/MovieDetail/MovieDetailedInfo';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessages } from 'components/Loader/Error/ErrorMessages';
+import { InfoLink, Item,List } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -52,14 +53,14 @@ const MovieDetails = () => {
       {isLoading && <Loader />}
       {error && <ErrorMessages>{error}</ErrorMessages>}
       {movie !== null && <MovieDetailedInfo movieInfo={movie} />}
-      <ul>
-        <li>
-          <Link to="cast">Read about the cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Go through the reviews</Link>
-        </li>
-      </ul>
+      <List>
+        <Item>
+          <InfoLink to="cast">Read about the cast</InfoLink>
+        </Item>
+        <Item>
+          <InfoLink to="reviews">Go through the reviews</InfoLink>
+        </Item>
+      </List>
       <Outlet />
     </div>
   );

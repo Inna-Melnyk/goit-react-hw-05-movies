@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   display: flex;
-  padding: 6px;
+  padding: 0;
+  margin-bottom: 20px;
 `;
 
 export const Info = styled.div`

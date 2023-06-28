@@ -18,9 +18,10 @@ export const Image = styled.img`
   max-width: 300px;
   height: auto;
   max-height: 450px;
-  @media screen and (max-width: 458px) {
-    margin-bottom: 20px;
-  }
+    @media screen and (max-width: 458px) {
+      margin: 0 auto 20px;
+    }
+  
 `;
 
 

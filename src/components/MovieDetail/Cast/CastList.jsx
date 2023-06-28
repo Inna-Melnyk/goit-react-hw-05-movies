@@ -1,6 +1,3 @@
-// import { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
-// import { fetchMovies } from 'components/api/request';
 import { CastItem } from './CastItem/CastItem';
 import { List, Item } from './CastList.styled';
 

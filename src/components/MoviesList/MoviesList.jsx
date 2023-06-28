@@ -7,22 +7,17 @@ export const MoviesList = ({ data }) => {
 
   return (
     <List>
-      {data.map(movie => {
-        console.log(movie);
+      {data.map(({ id, poster_path, title, name }) => {
         return (
-          <Item key={movie.id}>
+          <Item key={id}>
             <MovieLink
-              to={
-                location.pathname === '/movies'
-                  ? `${movie.id}`
-                  : `movies/${movie.id}`
-              }
+              to={location.pathname === '/movies' ? `${id}` : `movies/${id}`}
               state={{ from: location }}
             >
-             {movie.poster_path ? (
+              {poster_path ? (
                 <Image
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title || movie.name}
+                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                  alt={title || name}
                   width="300"
                 />
               ) : (
@@ -32,7 +27,7 @@ export const MoviesList = ({ data }) => {
                   width="300"
                 />
               )}
-              <Title>{movie.title ? movie.title : movie.name}</Title>
+              <Title>{title ? title : name}</Title>
             </MovieLink>
           </Item>
         );

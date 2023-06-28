@@ -45,9 +45,6 @@ const Reviews = () => {
     getReviews();
   }, [reviewsUrl]);
 
-  const cons = reviews.length;
-  console.log(cons);
-
   return (
     <div>
       {isLoading && <Loader />}

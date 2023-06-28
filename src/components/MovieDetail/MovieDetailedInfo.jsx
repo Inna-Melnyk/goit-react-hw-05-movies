@@ -18,11 +18,13 @@ import { MdOutlineRateReview } from 'react-icons/md';
 import { IoIosPeople } from 'react-icons/io';
 
 export const MovieDetailedInfo = ({ movieInfo }) => {
+  const { genres, poster_path, title, name, overview, vote_average } =
+    movieInfo;
+
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from ?? '/');
 
-  const genre = movieInfo.genres;
-  const genres = genre.map(item => item.name).join(', ');
+  const movieGenres = genres.map(item => item.name).join(', ');
 
   return (
     <>
@@ -30,12 +32,11 @@ export const MovieDetailedInfo = ({ movieInfo }) => {
         <TfiControlBackward size="18" />
         <span>Back</span>
       </BackLink>
-
       <Wrapper>
-        {movieInfo.poster_path ? (
+        {poster_path ? (
           <Image
-            src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`}
-            alt={movieInfo.title || movieInfo.name}
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            alt={title || name}
             width="300"
           />
         ) : (
@@ -46,27 +47,28 @@ export const MovieDetailedInfo = ({ movieInfo }) => {
           />
         )}
         <Info>
-          <Title>{movieInfo.title || movieInfo.name}</Title>
-          <Text>User score {Math.floor(movieInfo.vote_average * 10)}%</Text>
+          <Title>{title || name}</Title>
+          <Text>User score {Math.floor(vote_average * 10)}%</Text>
           <Subtitle>Overview</Subtitle>
-          <Text>{movieInfo.overview}</Text>
+          <Text>{overview}</Text>
           <Subtitle>Genres</Subtitle>
-          <Text>{genres}</Text>
-        </Info>       
-      </Wrapper> <List>
-          <Item>
-            <InfoLink to="cast">
-              <IoIosPeople size="18" />
-              <span> Read about the cast</span>
-            </InfoLink>
-          </Item>
-          <Item>
-            <InfoLink to="reviews">
-              <MdOutlineRateReview size="18" />
-              <span>Go through the reviews</span>
-            </InfoLink>
-          </Item>
-        </List>
+          <Text>{movieGenres}</Text>
+        </Info>
+      </Wrapper>
+      <List>
+        <Item>
+          <InfoLink to="cast">
+            <IoIosPeople size="18" />
+            <span> Read about the cast</span>
+          </InfoLink>
+        </Item>
+        <Item>
+          <InfoLink to="reviews">
+            <MdOutlineRateReview size="18" />
+            <span>Go through the reviews</span>
+          </InfoLink>
+        </Item>
+      </List>
     </>
   );
 };

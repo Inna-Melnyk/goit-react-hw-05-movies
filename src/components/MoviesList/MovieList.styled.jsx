@@ -26,10 +26,6 @@ export const Item = styled.li`
   &:hover {
     transform: scale(1.02);
   }
-  @media screen and (max-width: 458px) {
-    max-width: 170px;
-    max-height: 350px;
-  }
 `;
 
 
@@ -49,11 +45,7 @@ export const Image = styled.img`
   height: auto;
   max-height: 420px;
   max-width: 100%;
-  @media screen and (max-width: 458px) {
-    max-width: 170px;
-    max-height: 250px;
-    object-fit: cover;
-  }
+  object-fit: cover;
 `;
 
 

@@ -1,12 +1,12 @@
 import { Image, Title, Text } from "./CastItem.styled";
 export const CastItem = ({ item }) => {
-  console.log(item);
+  const { name, profile_path, character } = item;
   return (
     <>
-      {item.profile_path ? (
+      {profile_path ? (
         <Image
-          src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
-          alt={item.name}
+          src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+          alt={name}
           width="220"
         />
       ) : (
@@ -16,8 +16,8 @@ export const CastItem = ({ item }) => {
           width="220"
         />
       )}
-      <Title> {item.name}</Title>
-      <Text>Character: {item.character}</Text>
+      <Title> {name}</Title>
+      <Text>Character: {character}</Text>
     </>
   );
 };

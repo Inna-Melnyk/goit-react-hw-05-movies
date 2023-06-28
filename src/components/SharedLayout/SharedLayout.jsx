@@ -3,6 +3,7 @@ import { Container, Header, Logo, Link } from './SharedLayout.styled';
 import { RiMovie2Fill } from 'react-icons/ri';
 import { BiMoviePlay } from 'react-icons/bi';
 import { AiOutlineHome } from 'react-icons/ai';
+import { Loader } from 'components/Loader/Loader';
 
 import { Outlet } from 'react-router-dom';
 
@@ -25,7 +26,7 @@ export const SharedLayout = () => {
           </Link>
         </nav>
       </Header>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader/>}>
         <Outlet />
       </Suspense>
     </Container>

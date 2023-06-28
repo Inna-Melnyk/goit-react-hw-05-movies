@@ -7,9 +7,15 @@ import {
   Text,
   Subtitle,
   BackLink,
-  Image
+  Image,
+  InfoLink,
+  Item,
+  List,
 } from './MovieDetailedInfo.styled';
 import { useRef } from 'react';
+
+import { MdOutlineRateReview } from 'react-icons/md';
+import { IoIosPeople } from 'react-icons/io';
 
 export const MovieDetailedInfo = ({ movieInfo }) => {
   const location = useLocation();
@@ -39,7 +45,6 @@ export const MovieDetailedInfo = ({ movieInfo }) => {
             width="300"
           />
         )}
-
         <Info>
           <Title>{movieInfo.title || movieInfo.name}</Title>
           <Text>User score {Math.floor(movieInfo.vote_average * 10)}%</Text>
@@ -47,8 +52,21 @@ export const MovieDetailedInfo = ({ movieInfo }) => {
           <Text>{movieInfo.overview}</Text>
           <Subtitle>Genres</Subtitle>
           <Text>{genres}</Text>
-        </Info>
-      </Wrapper>
+        </Info>       
+      </Wrapper> <List>
+          <Item>
+            <InfoLink to="cast">
+              <IoIosPeople size="18" />
+              <span> Read about the cast</span>
+            </InfoLink>
+          </Item>
+          <Item>
+            <InfoLink to="reviews">
+              <MdOutlineRateReview size="18" />
+              <span>Go through the reviews</span>
+            </InfoLink>
+          </Item>
+        </List>
     </>
   );
 };

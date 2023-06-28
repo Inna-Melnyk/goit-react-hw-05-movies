@@ -1,12 +1,11 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import { useParams, Outlet } from 'react-router-dom';
-import { MdOutlineRateReview } from 'react-icons/md';
-import { IoIosPeople } from 'react-icons/io';
+
 import { fetchMovies } from 'api/request';
 import { MovieDetailedInfo } from 'components/MovieDetail/MovieDetailedInfo';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessages } from 'components/Error/ErrorMessages';
-import { InfoLink, Item, List } from './MovieDetails.styled';
+
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -54,21 +53,10 @@ const MovieDetails = () => {
       {isLoading && <Loader />}
       {error && <ErrorMessages>{error}</ErrorMessages>}
       {movie !== null && <MovieDetailedInfo movieInfo={movie} />}
-      <List>
-        <Item>
-          <InfoLink to="cast">
-            <IoIosPeople size="18" />
-            <span> Read about the cast</span>
-          </InfoLink>
-        </Item>
-        <Item>
-          <InfoLink to="reviews">
-            <MdOutlineRateReview size="18" />
-            <span>Go through the reviews</span>
-          </InfoLink>
-        </Item>
-      </List>
-      <Outlet />
+           
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

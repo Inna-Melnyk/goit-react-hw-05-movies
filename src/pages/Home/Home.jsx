@@ -4,7 +4,6 @@ import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { ErrorMessages } from 'components/Error/ErrorMessages';
 import { Title } from './Home.styled';
-import { useLocation } from 'react-router-dom';
 
 const trandingUrl = 'trending/all/day';
 

@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import {  useSearchParams } from 'react-router-dom';
 import { fetchMoviesbyTitle } from 'api/request';
 import { SearchBox } from 'components/Loader/SearchBox/SearchBox';
 import { MoviesList } from 'components/MoviesList/MoviesList';
+import { Loader } from 'components/Loader/Loader';
+import { ErrorMessages } from 'components/Error/ErrorMessages';
 
 const Movies = () => {
   const [movie, setMovie] = useState([]);
@@ -15,7 +17,7 @@ const Movies = () => {
 
   const abortCtrl = useRef();
 
-  const location = useLocation();
+  // const location = useLocation();
 
   const updateQueryString = query => {
     const nextParams = query !== '' ? { query } : {};
@@ -54,7 +56,9 @@ const Movies = () => {
 
   return (
     <div>
-      <h3>Movies Page</h3>
+      <h3>Find your movie!</h3>
+      {isLoading && <Loader />}
+      {error && <ErrorMessages>{error}</ErrorMessages>}{' '}
       <SearchBox value={movieName} onChange={updateQueryString} />
       {!isLoading && movie.length !== 0 && <MoviesList data={movie} />}{' '}
     </div>

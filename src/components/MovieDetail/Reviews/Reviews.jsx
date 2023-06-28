@@ -5,7 +5,7 @@ import { ReviewList } from './ReviewList';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessages } from 'components/Error/ErrorMessages';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -61,3 +61,5 @@ export const Reviews = () => {
     </div>
   );
 };
+
+export default Reviews;

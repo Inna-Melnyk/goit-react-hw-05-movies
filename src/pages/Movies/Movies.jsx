@@ -8,7 +8,6 @@ import { ErrorMessages } from 'components/Error/ErrorMessages';
 
 const Movies = () => {
   const [movie, setMovie] = useState([]);
-  // const [query, setQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -17,11 +16,8 @@ const Movies = () => {
 
   const abortCtrl = useRef();
 
-  // const location = useLocation();
-
   const updateQueryString = query => {
     const nextParams = query !== '' ? { query } : {};
-    console.log(nextParams);
     setSearchParams(nextParams);
   };
 

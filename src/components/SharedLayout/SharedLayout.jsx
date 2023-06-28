@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Container, Header, Logo, Link } from './SharedLayout.styled';
 import { RiMovie2Fill } from 'react-icons/ri';
 import { BiMoviePlay } from 'react-icons/bi';
@@ -24,7 +25,9 @@ export const SharedLayout = () => {
           </Link>
         </nav>
       </Header>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </Container>
   );
 };

@@ -5,7 +5,7 @@ import { CastList } from './CastList';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessages } from 'components/Error/ErrorMessages';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -29,7 +29,6 @@ export const Cast = () => {
         setError(null);
 
         const castData = await fetchMovies(castUrl, abortCtrl.current.signal);
-        console.log(castData);
         setCast(castData.cast);
         setError(null);
       } catch (error) {
@@ -51,3 +50,5 @@ export const Cast = () => {
     </div>
   );
 };
+
+export default Cast;

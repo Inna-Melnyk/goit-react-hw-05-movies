@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 export const Image = styled.img`
   display: block;
   width: 100%;
+  max-width: 300px;
   height: auto;
   max-height: 450px;
   @media screen and (max-width: 458px) {

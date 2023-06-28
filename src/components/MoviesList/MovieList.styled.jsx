@@ -2,13 +2,16 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 export const List = styled.ul`
-list-style: none;
-padding:0;
-margin:0;
-  display:flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
+  @media screen and (max-width: 458px) {
+    gap: 12px;
+  }
 `;
 export const Item = styled.li`
   max-width: 300px;
@@ -24,7 +27,7 @@ export const Item = styled.li`
     transform: scale(1.02);
   }
   @media screen and (max-width: 458px) {
-    max-width: 180px;
+    max-width: 170px;
     max-height: 350px;
   }
 `;
@@ -47,8 +50,8 @@ export const Image = styled.img`
   max-height: 420px;
   max-width: 100%;
   @media screen and (max-width: 458px) {
-    max-width: 180px;
-    max-height: 350px;
+    max-width: 170px;
+    max-height: 250px;
     object-fit: cover;
   }
 `;

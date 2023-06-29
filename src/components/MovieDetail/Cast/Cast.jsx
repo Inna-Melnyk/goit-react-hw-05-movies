@@ -46,11 +46,17 @@ const Cast = () => {
     <div>
       {isLoading && <Loader />}
       {error && <ErrorMessages>{error}</ErrorMessages>}
-    
+
       {cast.length !== 0 ? (
-       <CastList cast={cast} />
+        <CastList cast={cast} />
       ) : (
-        <p>There's no information about cast</p>
+        <p
+          style={{
+            color: 'red',
+          }}
+        >
+          There's no information about cast
+        </p>
       )}
     </div>
   );

@@ -53,7 +53,13 @@ const Reviews = () => {
       {reviews.length !== 0 ? (
         <ReviewList reviews={reviews} />
       ) : (
-        <p>There's no reviews yet</p>
+        <p
+          style={{
+            color: 'red',
+          }}
+        >
+          There's no reviews yet
+        </p>
       )}
     </div>
   );

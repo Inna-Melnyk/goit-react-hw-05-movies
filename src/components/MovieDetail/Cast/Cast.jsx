@@ -6,7 +6,7 @@ import { Loader } from 'components/Loader/Loader';
 import { ErrorMessages } from 'components/Error/ErrorMessages';
 
 const Cast = () => {
-  const [cast, setCast] = useState(null);
+  const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -46,7 +46,12 @@ const Cast = () => {
     <div>
       {isLoading && <Loader />}
       {error && <ErrorMessages>{error}</ErrorMessages>}
-      {cast && <CastList cast={cast} />}
+    
+      {cast.length !== 0 ? (
+       <CastList cast={cast} />
+      ) : (
+        <p>There's no information about cast</p>
+      )}
     </div>
   );
 };

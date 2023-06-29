@@ -12,8 +12,8 @@ export const SharedLayout = () => {
     <Container>
       <Header>
         <Logo>
-          <RiMovie2Fill size="22" />
-          <span>Movies Cinema</span>
+          <RiMovie2Fill size="28" />
+          <span>Home Cinema</span>
         </Logo>
         <nav>
           <Link to="/">

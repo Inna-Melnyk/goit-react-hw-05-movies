@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { CastItem } from './CastItem/CastItem';
 import { List, Item } from './CastList.styled';
 
@@ -13,4 +15,8 @@ export const CastList = ({ cast }) => {
       })}
     </List>
   );
+};
+
+CastList.propTypes = {
+  cast: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
 };

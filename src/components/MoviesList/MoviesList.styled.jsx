@@ -13,6 +13,8 @@ export const List = styled.ul`
     gap: 12px;
   }
 `;
+
+
 export const Item = styled.li`
   max-width: 300px;
   border: none;

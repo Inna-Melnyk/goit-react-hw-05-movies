@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Container = styled.div`
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 16px 40px;
 `;
 
 export const Header = styled.header`
@@ -21,13 +21,21 @@ export const Header = styled.header`
   }
 `;
 
+
+
 export const Logo = styled.p`
   display: flex;
   gap: 8px;
-  align-items:center;
+  align-items: center;
   font-size: 24px;
   font-weight: 700;
   margin: 0;
+
+  > span{
+    @media screen and (max-width: 458px) {
+    display: none;
+}
+  }
 `;
 
 export const Link = styled(NavLink)`

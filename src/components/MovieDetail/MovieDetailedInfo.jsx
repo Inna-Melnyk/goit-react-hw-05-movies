@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { TfiControlBackward } from 'react-icons/tfi';
 import {
   Wrapper,
@@ -71,4 +72,8 @@ export const MovieDetailedInfo = ({ movieInfo }) => {
       </List>
     </>
   );
+};
+
+MovieDetailedInfo.propTypes = {
+  movieInfo: PropTypes.object.isRequired,
 };

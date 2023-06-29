@@ -1,4 +1,6 @@
-import { Image, Title, Text } from "./CastItem.styled";
+import PropTypes from 'prop-types';
+import { Image, Title, Text } from './CastItem.styled';
+
 export const CastItem = ({ item }) => {
   const { name, profile_path, character } = item;
   return (
@@ -20,4 +22,8 @@ export const CastItem = ({ item }) => {
       <Text>Character: {character}</Text>
     </>
   );
+};
+
+CastItem.propTypes = {
+  item: PropTypes.object.isRequired,
 };

@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import { List, Title, Item, MovieLink, Image } from './MovieList.styled';
+import { List, Title, Item, MovieLink, Image } from './MoviesList.styled';
 
 export const MoviesList = ({ data }) => {
-
-    const location = useLocation();
+  const location = useLocation();
 
   return (
     <List>
@@ -34,4 +34,8 @@ export const MoviesList = ({ data }) => {
       })}
     </List>
   );
+};
+
+MoviesList.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
 };
